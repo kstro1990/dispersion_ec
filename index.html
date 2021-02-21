@@ -1,0 +1,158 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Luis Castro">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Dispersion WC</title>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/checkout/">
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="msapplication-config" content="https://getbootstrap.com/docs/4.4/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <!-- <link href="form-validation.css" rel="stylesheet"> -->
+  </head>
+  <body class="bg-light">
+<!-- container del app -->
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://www.evertecinc.com/images/evertec-logo.png" alt="" width="320" height="72">
+    <h2>Dispersión WC</h2>
+  </div>
+<!--  primer ROW  -->
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Response</span>
+        <span class="badge badge-secondary badge-pill"></span>
+      </h4>
+      <!-- json string  -->
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <!-- contenido -->
+          <div class="section">
+            <div class="text-center">
+              <!-- <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div> -->
+            </div>
+          </div>
+          <!-- <p class="card-text">{"include":[{"code":0,"groupCode":"P","type":"02","installments":[0,1,2,3]},{"code":0,"groupCode":"P","type":"02","installments":[0,1,2,3]}]}</p> -->
+        </div>
+      </div>
+
+    </div>
+    <!-- tipo de creditos cuerpo  -->
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Credenciales</h4>
+      <form class="" novalidate>
+        <!-- <div class="mb-3">
+          <label for="description">Corriente</label>
+          <input type="text" class="form-control" id="Credito" placeholder="tipo de credito">
+        </div> -->
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="corriente">Corriente</label>
+            <select class="custom-select d-block w-100" id="corriente" required>
+              <option value="DSP">Dispersion</option>
+              <option value="AGC">Agencia</option>
+              <option value="AIR">Aerolinea</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid country.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="login">Login</label>
+            <input type="text" class="form-control" id="login" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <label for="trankey">Trankey</label>
+            <input type="text" class="form-control" id="trankey" class="form-control">
+          </div>
+        </div>
+
+        <!-- Diferido con intereses grupo "P" -->
+        <hr class="mb-4">
+        <div class="mb-3">
+            <label for="airline">Aerolínea</label>
+            <select class="custom-select d-block w-100" id="airline" required>
+              <option value="11">COPA</option>
+              <option value="25">AMERICAN AIRLINES</option>
+              <option value="29">AVIANCA</option>
+              <option value="1">AIR CANADA</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid country.
+            </div>
+        </div>
+        <div class="mb-3">
+          <label for="valorAirline">Valor total tiquete</label>
+          <input type="text" class="form-control" id="valorAirline" class="form-control" placeholder="Ingresar Valor" onblur='validate(this);'>
+        </div>
+        <div class="mb-3">
+          <label for="creditoP1">Base imponible</label>
+          <input type="text" class="form-control" id="creditoP1" placeholder="Ingresar Valor" onblur='validate(this);'>
+        </div>
+        <div class="mb-3">
+          <label for="creditoP2">IVA</label>
+          <input type="text" class="form-control" id="creditoP2" placeholder="Ingresar Valor" onblur='validate(this);'>
+        </div>
+        <div class="mb-3">
+          <label for="total">total</label>
+          <input type="text" class="form-control" id="total" placeholder="Ingresar Valor" onblur='validate(this);'>
+        </div>
+        
+        <!-- direrido sin interese grupo "D" -->
+        <hr class="mb-4">
+        <div class="mb-3">
+          <label for="valorMerchant">Total tasa emisión</label>
+          <input type="text" class="form-control" id="valorMerchant" placeholder="Ingresar Valor" onblur='sumaTotal(this);'>
+        </div>
+        <div class="mb-3">
+            <label for="creditoD2">Base imponible tasa emisión</label>
+            <input type="text" class="form-control" id="creditoD2" placeholder="Ingresar Valor" onblur='validate(this);'>
+          </div>
+        <div class="mb-3">
+          <label for="creditoD1">IVA tasa emisión</label>
+          <input type="text" class="form-control" id="creditoD1" placeholder="Ingresar Valor" onblur='validate(this);'>
+        </div>
+        <!-- linea separadora  -->
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="button" onclick="sendDisper();">Generar</button>
+      </form>
+    </div>
+  </div>
+  <!-- contenido -->
+<!-- piede de pagina -->
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2021 Luis Castro</p>
+  </footer>
+</div>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<!-- <script src="form-validation.js"></script> -->
+
+</body>
+</html>
